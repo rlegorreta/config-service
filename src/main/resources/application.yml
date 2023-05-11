@@ -1,0 +1,86 @@
+server:
+  port: 8071
+  shutdown: graceful
+  tomcat:
+    connection-timeout: 2s
+    keep-alive-timeout: 15s
+    threads:
+      max: 50
+      min-spare: 5
+
+spring:
+  application:
+    name: config-service
+  lifecycle:
+    timeout-per-shutdown-phase: 15s
+  cloud:
+    config:
+      server:
+        encrypt:
+          enabled: true
+        #  Configuration to read the files from the config-repo
+        git:
+          uri: https://github.com/rlegorreta/config-repo
+          default-label: master
+          timeout: 5            # time limit to establish a connection with the remote repository
+          clone-on-start: true  # clones the remote repository locally on startup
+          force-pull: true      # force pulling the remote repository an
+          username: rlegorreta
+          password: L3g0S0ft
+          # If our repository have multiple directories specify which one to use, change this for directory names to search configuration files
+          #  searchPaths:
+          #    - config-repo/iam-ui
+          #    - config-repo/iams-service
+          #    - ...
+          # IMPORTANT: For production environment these two lines must be modified:
+          # 1st: The basedir is used as a fallback configuration directory for cases where the git (or other) repository is down
+          #      config-service will use these files and the system will go up without the Vault or git.
+          # 2nd: The default branch for the Vault, git repository is 'develop'. When deliver to production environment these
+          #      line must be changes for 'master' branch.
+          basedir: /Users/rlh/config/fallback/directory
+          # ^ This is in case the git it is not on-line we can use a local directory
+
+        # If we want to use file local configuration.
+        # native:
+        #   search-locations: classpath:config, classpath:config/auth-service,....
+        # and set the property to: spring.profiles.active = native
+
+#This is the configuration to encrypt and decrypt, change this for a new key pair and new password, alias, secret
+# keytool -genkeypair -alias customer-key -keyalg RSA -sigalg SHA512withRSA -dname 'CN=LMASS Desarrolladores,OU=LMASS Development,O=LMASS' -keypass L3g050ft -validity 365 -keystore customer-key.jks -storepass L3g050ft
+encrypt:
+  key-store:
+    location: classpath:/customer-key.jks
+    password: L3g050ft
+    alias: customer-key
+    secret: L3g050ft
+  #If we want to use symmetric encryption key
+  #key: fje83Ki8403Iod87dne7Yjsl3THueh48jfuO9j4U2hf64Lo
+
+logging:
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
+
+info:
+  system: Marketplace AILegorreta
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: configprops, env, health, heapdump, info, loggers, mappings, prometheus
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+      probes:
+        enabled: true
+  info:
+    env:
+      enabled: true
+    java:
+      enabled: true
+    os:
+      enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
