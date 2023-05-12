@@ -40,8 +40,8 @@ jobs:
           sarif_file: ${{ steps.scan.outputs.sarif }} # Fetches the report from the output of the previous step.
   package:                                    # The job´s unique identifier.
     name: Package and Publish
-    if: ${{ github.ref == 'refs/heads/main' }}  # Runs the job only on the main branch
-    needs: [ build ]                          # Runs the job only if the “build” job completes successfully
+    if: ${{ github.ref == 'refs/heads/master' }}  # Runs the job only on the main branch
+    needs: [ build ]                          # Runs the job only if the “build” job completes successfully.
     runs-on: ubuntu-22.04
     permissions:
       contents: read                          # Permission to check out the current Git repository
