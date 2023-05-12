@@ -67,8 +67,8 @@
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/Users/rlh/LocalDeveloper/ialegorreta-mktplace/config-service",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.0",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "spring.configuration.checksum": "902d78dda50ff1e5feb9eaf030302af8"
@@ -92,7 +92,7 @@
       <option name="presentableId" value="Default" />
       <updated>1683826349106</updated>
       <workItem from="1683826350477" duration="136000" />
-      <workItem from="1683826504778" duration="13293000" />
+      <workItem from="1683826504778" duration="13442000" />
     </task>
     <task id="LOCAL-00001" summary="Version 1.0.0">
       <created>1683827035469</created>
@@ -122,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683907304039</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="version 1.0.01">
+      <created>1683907491379</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683907491379</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
