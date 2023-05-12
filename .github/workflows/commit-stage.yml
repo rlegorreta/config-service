@@ -2,7 +2,7 @@ name: Commit Stage
 on: push
 
 jobs:
-  build:                                      # The job´s unique identifier
+  build:                                      # The job´s unique identifier.
     name: Build and Test                      # The type of machine where the job should run.
     runs-on: ubuntu-22.04
     permissions:
