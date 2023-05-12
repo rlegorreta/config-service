@@ -1,6 +1,7 @@
 FROM openjdk:17-jdk-slim as builder
 WORKDIR workspace
 MAINTAINER rlegorreta@legosoft.com.mx
+EXPOSE 8071:8071
 ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} app.jar
 RUN java -Djarmode=layertools -jar app.jar extract

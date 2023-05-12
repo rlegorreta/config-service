@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 
 plugins {
 	id("org.springframework.boot") version "3.0.6"
@@ -40,6 +41,18 @@ dependencyManagement {
 
 springBoot {
 	buildInfo()
+}
+
+tasks.named<BootBuildImage>("bootBuildImage") {
+	environment.set(environment.get() + mapOf("BP_JVM_VERSION" to "17.*"))
+	imageName.set("ailegorreta/${project.name}")
+	docker {
+		publishRegistry {
+			username.set(project.findProperty("registryUsername").toString())
+			password.set(project.findProperty("registryToken").toString())
+			url.set(project.findProperty("registryUrl").toString())
+		}
+	}
 }
 
 

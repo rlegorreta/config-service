@@ -77,6 +77,23 @@ Since the Config server can have different environments:
 
 We can define different usernames and passwords for each data base in different environments.
 
+#### Publish the image to GitHub
+
+```
+./gradlew bootBuildImage \
+   --imageName ghcr.io/rlegorreta/config-service \
+   --publishImage \
+   -PregistryUrl=ghcr.io \
+   -PregistryUsername=rlegorreta \
+   -PregistryToken=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
+```
+
+Run the image 
+
+```
+docker run -p 8071:8071 config-service
+```
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 
