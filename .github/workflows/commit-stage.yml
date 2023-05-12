@@ -3,7 +3,7 @@ on: push
 
 env:
   REGISTRY: ghcr.io                           # Uses the GitHub Container Registry
-  IMAGE_NAME: config-service                  # The image name all are lowe-case
+  IMAGE_NAME: rlegorreta/config-service       # The image name all are lowe-case
   VERSION: latest
 
 jobs:
