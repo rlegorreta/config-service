@@ -3,7 +3,7 @@ on: push
 
 env:
   REGISTRY: ghcr.io                           # Uses the GitHub Container Registry
-  IMAGE_NAME: ailegorreta/config-service      # The image name all are lowe-case
+  IMAGE_NAME: config-service                  # The image name all are lowe-case
   VERSION: latest
 
 jobs:
@@ -40,7 +40,7 @@ jobs:
           sarif_file: ${{ steps.scan.outputs.sarif }} # Fetches the report from the output of the previous step.
   package:                                    # The job´s unique identifier.
     name: Package and Publish
-    if: ${{ github.ref == 'refs/heads/master' }}  # Runs the job only on the main branch
+    if: ${{ github.ref == 'refs/heads/master' }}  # Runs the job only on the master branch
     needs: [ build ]                          # Runs the job only if the “build” job completes successfully.
     runs-on: ubuntu-22.04
     permissions:
