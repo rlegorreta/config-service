@@ -25,7 +25,7 @@ jobs:
         uses: anchore/scan-action@v3          # Scans the codebase for vulnerabilities using grype.
         id: scan                              # Assigns an identifier to the current step so that it can be referenced from subsequent steps
         with:
-          path: "${{ github.workspace }}"     # The path to the checked-out repository
+          path: "${{ github.workspace }}"     # The path to the checked-out repository.
           fail-build: false                   # Whether to fail the build in the event of security vulnerabilities
           severity-cutoff: high               # Minimum security category to be considered (low, medium, high, critical)
       - name: Upload vulnerability report
