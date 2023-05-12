@@ -30,7 +30,7 @@ spring:
           # If our repository have multiple directories specify which one to use, change this for directory names to search configuration files
           #  searchPaths:
           #    - config-repo/iam-ui
-          #    - config-repo/iams-service
+          #    - config-repo/iam-service
           #    - ...
           # IMPORTANT: For production environment these two lines must be modified:
           # 1st: The basedir is used as a fallback configuration directory for cases where the git (or other) repository is down
