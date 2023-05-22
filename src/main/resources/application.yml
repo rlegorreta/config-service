@@ -37,7 +37,7 @@ spring:
           #      config-service will use these files and the system will go up without the Vault or git.
           # 2nd: The default branch for the Vault, git repository is 'develop'. When deliver to production environment these
           #      line must be changes for 'master' branch.
-          # basedir: /Users/rlh/config/fallback/directory
+          # basedir: ~/config/fallback/directory
           # ^ This is in case the git it is not on-line we can use a local directory
 
         # If we want to use file local configuration.

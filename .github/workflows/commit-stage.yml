@@ -38,6 +38,13 @@ jobs:
         if: success() || failure()            # Uploads the report even if the previous step fails
         with:
           sarif_file: ${{ steps.scan.outputs.sarif }} # Fetches the report from the output of the previous step.
+      - name: Validate Kubernetes manifests
+        uses: stefanprodan/kube-tools@v1      # An action capable of installing useful tools to work with Kubernetes
+        with:
+          kubectl: 1.24.3                     # Includes the Kubernetes CLI in the installation
+          kubeval: 0.16.1                     # Includes Kubeval in the installation. Validate k8s directory.
+0,          command: |
+            kubeval --strict -d k8s
   package:                                    # The job´s unique identifier.
     name: Package and Publish
     if: ${{ github.ref == 'refs/heads/master' }}  # Runs the job only on the master branch
