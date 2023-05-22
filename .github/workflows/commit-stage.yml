@@ -43,7 +43,7 @@ jobs:
         with:
           kubectl: 1.24.3                     # Includes the Kubernetes CLI in the installation
           kubeval: 0.16.1                     # Includes Kubeval in the installation. Validate k8s directory.
-0,          command: |
+          command: |
             kubeval --strict -d k8s
   package:                                    # The job´s unique identifier.
     name: Package and Publish
